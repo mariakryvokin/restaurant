@@ -1,0 +1,2 @@
+2018-08-23 23:46:25.058 [http-bio-8888-exec-3] INFO  app.controller.listener.SessionListener - start of session for Maria123
+2018-08-23 23:48:06.848 [http-bio-8888-exec-6] INFO  app.controller.commands.Login - OrderOrder{sum=700.00, timestamp=2018-08-23 23:48:06.536, status='null', userId=1}for user1has been created

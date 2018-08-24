@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="error">
+    <Properties>
+        <Property name="APP_LOG_ROOT">E:\epam\java\Restaurant</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %msg%n" />
+        </Console>
+        <File  name="fileLogger" fileName="${APP_LOG_ROOT}/app.log" append="false">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File >
+        <File  name="errorLogger" fileName="${APP_LOG_ROOT}/error.log" append="false">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File >
+    </Appenders>
+    <Loggers>
+        <Root level="trace" >
+            <AppenderRef ref="Console" level="trace" />
+            <AppenderRef ref="fileLogger" level="info" />
+            <AppenderRef ref="errorLogger" level="error" />
+        </Root>
+    </Loggers>
+</Configuration>

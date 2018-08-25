@@ -7,6 +7,7 @@ import app.model.entity.User;
 import app.model.services.IUserService;
 
 public class UserServiceImpl implements IUserService {
+    private static
     DaoFactory daoFactory = DaoFactory.getInstance();
     @Override
     public boolean exists(String login) {

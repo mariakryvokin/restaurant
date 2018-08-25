@@ -47,6 +47,7 @@ public class Servlet extends HttpServlet {
 
     private void processRequest(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
         String path = req.getRequestURI();
+        System.out.println("path "+ path);
         ICommand command = commands.getOrDefault(path , (r,t)->"index.jsp");
         String page = command.execute(req,req.getMethod().toLowerCase());
         if(req.getMethod().toLowerCase().equals("post")){

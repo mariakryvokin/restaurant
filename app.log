@@ -1,2 +1,40 @@
-2018-08-23 23:46:25.058 [http-bio-8888-exec-3] INFO  app.controller.listener.SessionListener - start of session for Maria123
-2018-08-23 23:48:06.848 [http-bio-8888-exec-6] INFO  app.controller.commands.Login - OrderOrder{sum=700.00, timestamp=2018-08-23 23:48:06.536, status='null', userId=1}for user1has been created
+2018-08-25 15:15:11.721 [http-bio-8888-exec-1] INFO  app.controller.listener.SessionListener - start session 
+2018-08-25 15:15:27.138 [http-bio-8888-exec-3] INFO  app.controller.listener.SessionListener - user Mariia567 successfully log in
+2018-08-25 15:15:32.130 [http-bio-8888-exec-6] INFO  app.controller.commands.Login - order 3 confirmed successfully
+2018-08-25 15:16:32.034 [http-bio-8888-exec-9] INFO  app.controller.listener.SessionListener - start session 
+2018-08-25 15:16:55.839 [http-bio-8888-exec-10] INFO  app.controller.listener.SessionListener - user Admin successfully log in
+2018-08-25 15:20:41.819 [http-bio-8888-exec-8] INFO  app.controller.commands.Login - order 7 confirmed successfully
+2018-08-25 15:27:05.841 [http-bio-8888-exec-9] INFO  app.controller.commands.Login - order 10 confirmed successfully
+2018-08-25 15:27:19.053 [http-bio-8888-exec-9] INFO  app.controller.listener.SessionListener - end of session for Mariia567
+2018-08-25 15:27:19.093 [http-bio-8888-exec-9] INFO  app.controller.listener.SessionListener - start session 
+2018-08-25 15:27:30.903 [http-bio-8888-exec-9] INFO  app.controller.listener.SessionListener - user Maria123 successfully log in
+2018-08-25 15:28:25.925 [http-bio-8888-exec-4] INFO  app.controller.listener.SessionListener - end of session for Admin
+2018-08-25 15:28:25.965 [http-bio-8888-exec-4] INFO  app.controller.listener.SessionListener - start session 
+2018-08-25 15:28:43.335 [http-bio-8888-exec-4] INFO  app.controller.listener.SessionListener - user Admin successfully log in
+2018-08-25 15:30:13.545 [http-bio-8888-exec-7] INFO  app.controller.listener.SessionListener - end of session for Maria123
+2018-08-25 15:30:13.575 [http-bio-8888-exec-7] INFO  app.controller.listener.SessionListener - start session 
+2018-08-25 15:30:26.005 [http-bio-8888-exec-7] INFO  app.controller.listener.SessionListener - user Maria123 successfully log in
+2018-08-25 15:33:56.098 [http-bio-8888-exec-1] INFO  app.controller.listener.SessionListener - end of session for Admin
+2018-08-25 15:33:56.318 [http-bio-8888-exec-1] INFO  app.controller.listener.SessionListener - start session 
+2018-08-25 15:38:19.317 [http-bio-8888-exec-4] ERROR app.controller.listener.SessionListener - user Maria123  is logged already
+2018-08-25 15:38:36.352 [http-bio-8888-exec-10] INFO  app.controller.listener.SessionListener - user Admin successfully log in
+2018-08-25 15:41:49.917 [http-bio-8888-exec-9] INFO  app.controller.listener.SessionListener - end of session for Admin
+2018-08-25 15:41:49.949 [http-bio-8888-exec-9] INFO  app.controller.listener.SessionListener - start session 
+2018-08-25 15:42:29.978 [http-bio-8888-exec-5] INFO  app.controller.listener.SessionListener - end of session for Maria123
+2018-08-25 15:42:30.009 [http-bio-8888-exec-5] INFO  app.controller.listener.SessionListener - start session 
+2018-08-25 15:45:10.456 [http-bio-8888-exec-2] ERROR app.controller.listener.SessionListener - user Admin with such password doesn't exists
+2018-08-25 15:45:19.831 [http-bio-8888-exec-1] INFO  app.controller.listener.SessionListener - user Admin successfully log in
+2018-08-25 15:45:26.851 [http-bio-8888-exec-1] INFO  app.controller.listener.SessionListener - end of session for Admin
+2018-08-25 15:45:26.883 [http-bio-8888-exec-1] INFO  app.controller.listener.SessionListener - start session 
+2018-08-25 15:45:33.403 [http-bio-8888-exec-1] INFO  app.controller.listener.SessionListener - user Admin successfully log in
+2018-08-25 15:45:39.238 [http-bio-8888-exec-1] INFO  app.controller.listener.SessionListener - end of session for Admin
+2018-08-25 15:45:39.269 [http-bio-8888-exec-1] INFO  app.controller.listener.SessionListener - start session 
+2018-08-25 15:46:02.123 [http-bio-8888-exec-2] INFO  app.controller.listener.SessionListener - user Maria123 successfully log in
+2018-08-25 16:05:47.629 [http-bio-8888-exec-9] INFO  app.controller.commands.Login - OrderOrder{id=12, sum=850.00, timestamp=2018-08-25 16:05:47.364, status='null', userId=1, adminId=0, dishAmount={napoleon/210.00
+=1, olive/320.00
+=2}}for user1has been created
+2018-08-25 16:06:37.674 [http-bio-8888-exec-9] INFO  app.controller.listener.SessionListener - end of session for Maria123
+2018-08-25 16:06:37.720 [http-bio-8888-exec-9] INFO  app.controller.listener.SessionListener - start session 
+2018-08-25 16:07:04.256 [http-bio-8888-exec-9] INFO  app.controller.listener.SessionListener - user Maria123 successfully log in
+2018-08-25 16:07:27.750 [http-bio-8888-exec-9] INFO  app.controller.listener.SessionListener - end of session for Maria123
+2018-08-25 16:07:27.781 [http-bio-8888-exec-9] INFO  app.controller.listener.SessionListener - start session 

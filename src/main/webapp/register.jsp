@@ -4,6 +4,7 @@
 <fmt:setBundle basename="text"/>
 <html lang="${language}">
 <body>
+<h1><fmt:message key="text.regForm" /></h1>
 <form method="post"action="${pageContext.request.contextPath}/register">
     <label><fmt:message key="input.login" />:  </label>
         <input type="text" name="login"><br />

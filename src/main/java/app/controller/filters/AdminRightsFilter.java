@@ -18,7 +18,6 @@ public class AdminRightsFilter implements Filter {
                          FilterChain filterChain) throws IOException, ServletException {
         System.out.println("admin righs FILTER");
         final HttpServletRequest req = (HttpServletRequest) request;
-
         HttpSession session = req.getSession();
         if(!session.getAttribute("role").toString().equals("ADMIN")){
             throw new RuntimeException("not enough right for this");

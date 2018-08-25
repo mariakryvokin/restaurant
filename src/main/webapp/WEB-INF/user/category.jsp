@@ -2,8 +2,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="text"/>
+<fmt:setBundle basename="text" var="resource"/>
 <html lang="${language}">
+<title>Menu</title>
 <body>
 <c:forEach items="${categories}" var="categories">
     <p>
@@ -11,9 +12,7 @@
     </p>
 </c:forEach>
 <br>
-<input  type="${role=='USER' ? 'button' : 'hidden'}" value="main page" onclick="location.href='/USER/main'"/>
-<br>
-<input  type="${role=='ADMIN' ? 'button' : 'hidden'}" value="main page" onclick="location.href='/ADMIN/main'"/>
-<br>
+<input type="button" value="<fmt:message key="text.mainPage" bundle="${resource}"/>" onclick="location.href='/USER/main'"/>
+
 </body>
 </html>

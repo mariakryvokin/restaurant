@@ -4,29 +4,32 @@
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="text"/>
 <html lang="${language}">
+<title>Order</title>
 <body>
 <table>
 <tr>
-    <th>Name/Price</th>
-    <th>amount</th>
+    <th><fmt:message key="text.name"/>/<fmt:message key="price"/></th>
+    <th><fmt:message key="amount"/></th>
 </tr>
     <tr>
     <c:forEach var="elem" items="${DishAmountEntrySet}" varStatus="status">
-        <td>${ elem.getKey()}</td>
+        <td> ${language == 'en' ?elem.getKey().getName() : elem.getKey().getNameUa()} / ${elem.getKey().getPrice()}</td>
         <td>${ elem.getValue()}</td>
         <td>
     <form action="/USER/deleteItemFromOrder?idToRemove=${elem.getKey().getId()}" method="post" >
-        <input type="submit" value="Delete item"/>
+        <input type="submit" value="<fmt:message key="delete"/>"/>
     </form>
         </td>
     </tr>
 </c:forEach>
 </table>
-<label>total price : ${totalPrice} </label>
+<label><fmt:message key="total.price"/>: ${totalPrice} </label>
 <br>
+<c:if test="${ totalPrice > 0 }">
 <form method="post" action="/USER/sendOrder">
-<input type="submit" value="Send order"/>
+    <input type="submit" value="<fmt:message key="text.sendOrder"/>"/>
 </form>
-<input type="button" value="Menu" onclick="location.href='${pageContext.request.contextPath}/USER/category'"/>
+</c:if>
+<input type="button" value="<fmt:message key="text.menu"/>" onclick="location.href='${pageContext.request.contextPath}/USER/category'"/>
 </body>
 </html>

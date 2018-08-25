@@ -1,8 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="text"/>
 <html>
+<title>Menu</title>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 </head>
@@ -11,10 +13,10 @@
 <div class="row col-md-6">
     <table class="table table-striped table-bordered table-sm">
         <tr>
-            <th>Name</th>
-            <th>price</th>
-            <th>amount</th>
-            <th>add to order</th>
+            <th><fmt:message key="text.name"/></th>
+            <th><fmt:message key="price"/></th>
+            <th><fmt:message key="amount"/></th>
+            <th><fmt:message key="text.toOrder"/></th>
         </tr>
         <c:forEach items="${dishes}" var="dishes">
             <tr>
@@ -22,7 +24,7 @@
                 <td>${language == 'en' ? dishes.getName() : dishes.getNameUa()}</td>
                 <td>${dishes.getPrice()}</td>
                 <td><input type="number" min="1" name="amount" value="1"/></td>
-                <td><input type="submit" value="<fmt:message key="text.order" />"/></td>
+                <td><input type="submit" value="<fmt:message key="text.toOrder" />"/></td>
                     <input type="hidden"  name="dishId" value="${dishes.getId()}"/>
                 </form>
             </tr>

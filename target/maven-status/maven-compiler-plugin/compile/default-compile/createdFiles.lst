@@ -8,7 +8,6 @@ app\model\dao\impl\DaoFactoryImpl.class
 app\controller\listener\SessionListener.class
 app\model\entity\Category.class
 app\model\entity\Check.class
-app\controller\filters\CashControl.class
 app\model\dao\mapper\OrderHasDishMapper.class
 app\model\dao\IDishDao.class
 app\controller\commands\user\PayCheck.class
@@ -31,6 +30,7 @@ app\config\ConnectionPoolHolder.class
 app\model\dao\impl\OrderHasDishDaoImpl.class
 app\controller\commands\user\SendOrder.class
 app\model\dao\mapper\CheckMapper.class
+app\model\dao\mapper\OrderDishMapper.class
 app\model\services\IGenericService.class
 app\model\services\impl\UserServiceImpl.class
 app\model\services\impl\CheckServiceImpl.class

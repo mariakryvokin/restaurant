@@ -17,6 +17,7 @@ public class SessionListener implements HttpSessionListener {
     private static final Logger logger = LogManager.getLogger(SessionListener.class);
     @Override
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {
+        logger.info("start session ");
     }
 
     @Override

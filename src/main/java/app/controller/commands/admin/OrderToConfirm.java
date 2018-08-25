@@ -5,12 +5,14 @@ import app.model.entity.Order;
 import app.model.services.Services;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class OrderToConfirm implements ICommand {
     @Override
     public String execute(HttpServletRequest req, String method) {
         if(method.equals("get")){
-            req.setAttribute("ordersToConfirm",Services.ORDER_SERVICE.getAllNotConfirmed());
+            req.setAttribute("ordersToConfirm", Services.ORDER_SERVICE.getAllNotConfirmed());
             return "/WEB-INF/admin/ordersToConfirm.jsp";
         }
         if(method.equals("post")){

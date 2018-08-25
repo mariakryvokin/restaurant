@@ -2,17 +2,20 @@ package app.model.dao.impl;
 
 import app.controller.commands.Login;
 import app.model.dao.IOrderDao;
+import app.model.dao.mapper.DishMapper;
+import app.model.dao.mapper.OrderDishMapper;
+import app.model.dao.mapper.OrderHasDishMapper;
 import app.model.dao.mapper.OrderMapper;
 import app.model.entity.Check;
 import app.model.entity.Dish;
 import app.model.entity.Order;
+import app.model.entity.OrderHasDish;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class OrderDaoImpl implements IOrderDao {
     private static final Logger logger = LogManager.getLogger(Login.class.getName());
@@ -23,14 +26,19 @@ public class OrderDaoImpl implements IOrderDao {
     }
 
     @Override
-    public List<Order> getAllNotConfirmed() {
+    public  List<Order> getAllNotConfirmed() {
         List<Order> orders = new ArrayList<>();
-        String sql = "Select * FROM restaurant.`order` where status='notConfirmed'";
+        String sql = "Select * FROM restaurant.`order`,order_has_dish,dish where status='notConfirmed' AND " +
+                "restaurant.`order`.id=order_id AND dish.id=dish_id";
         try(Statement st = connection.createStatement();ResultSet rs = st.executeQuery(sql)) {
-            OrderMapper orderMapper = new OrderMapper();
+            OrderDishMapper orderDishMapper= new OrderDishMapper();
             while (rs.next()){
-                Order order = orderMapper.extractFromResultSet(rs);
-                orders.add(order);
+                Order order = orderDishMapper.extractFromResultSet(rs);
+                if(!orders.contains(order)){
+                    orders.add(order);
+                }else {
+                    orders.get(orders.indexOf(order)).getDishAmount().putAll(order.getDishAmount());
+                }
             }
             return orders;
         } catch (SQLException e) {
@@ -107,6 +115,7 @@ public class OrderDaoImpl implements IOrderDao {
         String sqlCheck = "INSERT INTO restaurant.`check`(date_time,`sum`,order_id,user_id) values(?,?,?,?)";
         try {
             if (!connection.createStatement().executeQuery("SELECT id FROM restaurant.`order` WHERE id = " + order.getId() + " AND status = 'notConfirmed'").next()) {
+                logger.info("try to confirm already confirmed!");
                 return false;
             }
             connection.setAutoCommit(false);

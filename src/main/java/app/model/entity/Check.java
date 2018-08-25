@@ -64,7 +64,6 @@ public class Check {
         return "Check{" +
                 "status='" + status + '\'' +
                 ", sum=" + sum +
-                ", timestamp=" + timestamp +
                 ", userId=" + userId +
                 ", orderId=" + orderId +
                 '}';

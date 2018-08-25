@@ -4,13 +4,15 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class Order {
     private int id;
     private BigDecimal sum;
     private Timestamp timestamp;
-/*    private LocalDateTime dateTime;*/
     private String status;
     private int userId;
     private int adminId;
@@ -18,7 +20,20 @@ public class Order {
     private Map<Dish,Integer> dishAmount;
 
     public Order(){
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order)) return false;
+        Order order = (Order) o;
+        return getId() == order.getId();
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getId());
     }
 
     public Map<Dish, Integer> getDishAmount() {
@@ -88,10 +103,13 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "sum=" + sum +
+                "id=" + id +
+                ", sum=" + sum +
                 ", timestamp=" + timestamp +
                 ", status='" + status + '\'' +
                 ", userId=" + userId +
+                ", adminId=" + adminId +
+                ", dishAmount=" + dishAmount +
                 '}';
     }
 }

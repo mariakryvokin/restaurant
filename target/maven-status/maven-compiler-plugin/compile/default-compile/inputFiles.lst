@@ -41,11 +41,11 @@ E:\epam\java\Restaurant\src\main\java\app\config\IRegexContainer.java
 E:\epam\java\Restaurant\src\main\java\app\model\dao\impl\OrderHasDishDaoImpl.java
 E:\epam\java\Restaurant\src\main\java\app\model\services\impl\DishServiceImpl.java
 E:\epam\java\Restaurant\src\main\java\app\model\dao\IOrderDao.java
+E:\epam\java\Restaurant\src\main\java\app\model\dao\mapper\OrderDishMapper.java
 E:\epam\java\Restaurant\src\main\java\app\model\services\impl\CheckServiceImpl.java
 E:\epam\java\Restaurant\src\main\java\app\model\services\ICheckService.java
 E:\epam\java\Restaurant\src\main\java\app\model\services\IDishService.java
 E:\epam\java\Restaurant\src\main\java\app\model\entity\User.java
-E:\epam\java\Restaurant\src\main\java\app\controller\filters\CashControl.java
 E:\epam\java\Restaurant\src\main\java\app\model\services\ICategoryService.java
 E:\epam\java\Restaurant\src\main\java\app\model\dao\impl\DaoFactoryImpl.java
 E:\epam\java\Restaurant\src\main\java\app\model\entity\Check.java

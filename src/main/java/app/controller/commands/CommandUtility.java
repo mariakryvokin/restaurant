@@ -15,11 +15,10 @@ class CommandUtility {
         request.getSession().setAttribute("role",user.getRole());
     }
 
-    static boolean checkUserIsLogged(HttpServletRequest request, String login){
+    static synchronized boolean checkUserIsLogged(HttpServletRequest request, String login){
        /* HashSet<String> loggedUsers = (HashSet<String>) request.getSession().getServletContext()
                 .getAttribute("loggedUsers");*/
-        Set<String> loggedUsers = Collections.synchronizedSet((Set<String>) request.getSession().getServletContext()
-                .getAttribute("loggedUsers"));
+        Set<String> loggedUsers = (Set<String>) request.getSession().getServletContext().getAttribute("loggedUsers");
         if(loggedUsers.contains(login)){
             return true;
         }

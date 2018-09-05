@@ -5,4 +5,5 @@ import app.model.entity.OrderHasDish;
 import java.util.Map;
 
 public interface IOrderHasDishDao extends IGenericDao<OrderHasDish> {
+    boolean deleteByDishOrderId(int dishId, int orderId);
 }

@@ -11,12 +11,9 @@
 </form>
 <h3><fmt:message key="text.hello" bundle="${resource}"/> ${login}</h3>
 
-<input type="button" value="<fmt:message key="text.order" bundle="${resource}" />" onclick="location.href='/ADMIN/ordersToConfirm'"/>
-<%--<br>
-<input  type="button" value="Add dish to menu" onclick="location.href='/addDish'"/>
+<input type="button" value="<fmt:message key="text.order" bundle="${resource}" />" onclick="location.href='/admin/ordersToConfirm'"/>
 <br>
-<input  type="button" value="Add admin" onclick="location.href='/addAdmin'"/>
-<br>
-<input  type="button" value="Edit menu" onclick="location.href='/category'"/>--%>
+<input type="button" value="<fmt:message key="text.admin.ordersForUser" bundle="${resource}" />" onclick="location.href='/admin/ordersForUser'"/>
+
 </body>
 </html>

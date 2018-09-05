@@ -5,6 +5,7 @@ import app.model.entity.OrderHasDish;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class OrderHasDishDaoImpl implements IOrderHasDishDao {
@@ -59,4 +60,19 @@ public class OrderHasDishDaoImpl implements IOrderHasDishDao {
         }
     }
 
+    @Override
+    public boolean deleteByDishOrderId(int dishId, int orderId) {
+        String sql = "delete from order_has_dish where order_id="+orderId+" AND dish_id="+dishId;
+        String deleteOrder = " update `order` set status='deleted', status_ua='видалений' " +
+                "where id="+orderId+" AND id not in (select order_id from order_has_dish)";
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        PreparedStatement preparedStatementDelete = connection.prepareStatement(deleteOrder)) {
+            int resDeleteOrderHasDish = preparedStatement.executeUpdate();
+            int resDeleteOrder = preparedStatementDelete.executeUpdate();
+            return resDeleteOrderHasDish > 0 || resDeleteOrder > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

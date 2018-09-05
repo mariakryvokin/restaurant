@@ -13,27 +13,55 @@ public class Order {
     private int id;
     private BigDecimal sum;
     private Timestamp timestamp;
-    private String status;
     private int userId;
     private int adminId;
 
     private Map<Dish,Integer> dishAmount;
+    private Check check;
+    private User user;
+    private OrderStatus statusEnum;
+    private OrderStatusUa statusUaEnum;
+
+    public enum OrderStatus {
+        CONFIRMED, UNCONFIRMED,DELETED
+    }
+    public enum OrderStatusUa {
+        ПІДТВЕРДЖЕНИЙ, НЕПІДТВЕРДЖЕНИЙ, ВИДАЛЕНИЙ
+    }
 
     public Order(){
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Order)) return false;
-        Order order = (Order) o;
-        return getId() == order.getId();
+    public User getUser() {
+        return user;
     }
 
-    @Override
-    public int hashCode() {
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-        return Objects.hash(getId());
+    public OrderStatus getStatusEnum() {
+        return statusEnum;
+    }
+
+    public void setStatusEnum(OrderStatus statusEnum) {
+        this.statusEnum = statusEnum;
+    }
+
+    public OrderStatusUa getStatusUaEnum() {
+        return statusUaEnum;
+    }
+
+    public void setStatusUaEnum(OrderStatusUa statusUaEnum) {
+        this.statusUaEnum = statusUaEnum;
+    }
+
+    public Check getCheck() {
+        return check;
+    }
+
+    public void setCheck(Check check) {
+        this.check = check;
     }
 
     public Map<Dish, Integer> getDishAmount() {
@@ -76,22 +104,6 @@ public class Order {
         this.id = id;
     }
 
-/*    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }*/
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public Timestamp getTimestamp() {
         return timestamp;
     }
@@ -106,7 +118,6 @@ public class Order {
                 "id=" + id +
                 ", sum=" + sum +
                 ", timestamp=" + timestamp +
-                ", status='" + status + '\'' +
                 ", userId=" + userId +
                 ", adminId=" + adminId +
                 ", dishAmount=" + dishAmount +

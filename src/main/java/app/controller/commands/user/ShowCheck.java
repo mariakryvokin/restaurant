@@ -9,12 +9,12 @@ public class ShowCheck implements ICommand {
     @Override
     public String execute(HttpServletRequest req, String method) {
         if(method.equals("post")){
-            return "/USER/showCheck";
+            return "/user/showCheck";
         }
         if(method.toLowerCase().equals("get")){
             System.out.println("SHOW CHECK Get");
             req.setAttribute("allChecks",
-                    Services.CHECK_SERVICE.getAllNotPaidByUserId((Integer) req.getSession().getAttribute("userId")));
+                    Services.CHECK_SERVICE.getAllUnpaidByUserId((Integer) req.getSession().getAttribute("userId")));
             System.out.println(req.getAttribute("allChecks").toString());
             return "/WEB-INF/user/showCheck.jsp";
         }

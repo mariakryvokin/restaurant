@@ -26,7 +26,7 @@ public class SendOrder implements ICommand {
             order.setUserId((Integer) req.getSession().getAttribute("userId"));
             Services.ORDER_SERVICE.insert(order);
             req.getSession().removeAttribute("dishObjMap");
-            return "/USER/main";
+            return "/user/main";
         }
         return null;
     }

@@ -12,10 +12,12 @@
 
 <h3><fmt:message key="text.hello" bundle="${resource}" /> ${login}</h3>
 
-<input type="button" value="<fmt:message key="text.menu" bundle="${resource}"/>" onclick="location.href='/USER/category'"/>
+<input type="button" value="<fmt:message key="text.menu" bundle="${resource}"/>" onclick="location.href='/user/category'"/>
 <br>
-<input  type="${dishObjMap==null ? 'hidden' : 'button'}" value="<fmt:message key="text.order" bundle="${resource}"/>" onclick="location.href='/USER/showOrder'"/>
+<input  type="${dishObjMap==null ? 'hidden' : 'button'}" value="<fmt:message key="text.order" bundle="${resource}"/>" onclick="location.href='/user/showOrder'"/>
 <br>
-<input  type="button" value="<fmt:message key="text.check" bundle="${resource}" /> " onclick="location.href='/USER/showCheck'"/>
+<input  type="button" value="<fmt:message key="text.check" bundle="${resource}" /> " onclick="location.href='/user/showCheck'"/>
+<br>
+<input  type="button" value="<fmt:message key="text.myAllOrders" bundle="${resource}" /> " onclick="location.href='/user/showAllSendedOrders'"/>
 </body>
 </html>

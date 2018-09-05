@@ -13,9 +13,10 @@ import java.util.Map;
 
 public class ShowOrder implements ICommand {
     @Override
+    @SuppressWarnings("unchecked")
     public String execute(HttpServletRequest req, String method) {
         if(method.equals("post")){
-            return"/USER/showOrder";
+            return"/user/showOrder";
         }
         if(method.toLowerCase().equals("get")){
             HashMap<Dish, Integer> dishObjMap = (HashMap<Dish, Integer>) req.getSession().getAttribute("dishObjMap");

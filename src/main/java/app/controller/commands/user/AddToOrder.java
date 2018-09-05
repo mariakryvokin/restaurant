@@ -20,7 +20,7 @@ public class AddToOrder implements ICommand {
             Dish dish = Services.DISH_SERVICE.findById(dishId);
             dishObjMap.put(dish,amount);
             req.getSession(false).setAttribute("dishObjMap", dishObjMap);
-            return "/USER/menu?category_id="+dish.getCategoryId();
+            return "/user/menu?category_id="+dish.getCategoryId();
         }
         return null;
     }

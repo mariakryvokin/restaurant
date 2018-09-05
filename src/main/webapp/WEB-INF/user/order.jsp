@@ -8,17 +8,19 @@
 <body>
 <table>
 <tr>
-    <th><fmt:message key="text.name"/>/<fmt:message key="price"/></th>
+    <th><fmt:message key="text.name"/>/<fmt:message key="text.price"/></th>
     <th><fmt:message key="amount"/></th>
+    <th><fmt:message key="total.price"/></th>
 </tr>
     <tr>
     <c:forEach var="elem" items="${DishAmountEntrySet}" varStatus="status">
         <td> ${language == 'en' ?elem.getKey().getName() : elem.getKey().getNameUa()} / ${elem.getKey().getPrice()}</td>
         <td>${ elem.getValue()}</td>
+        <td>${elem.getValue()*elem.getKey().getPrice()}</td>
         <td>
-    <form action="/USER/deleteItemFromOrder?idToRemove=${elem.getKey().getId()}" method="post" >
+            <form action="/user/deleteItemFromOrder?idToRemove=${elem.getKey().getId()}" method="post" >
         <input type="submit" value="<fmt:message key="delete"/>"/>
-    </form>
+            </form>
         </td>
     </tr>
 </c:forEach>
@@ -26,10 +28,10 @@
 <label><fmt:message key="total.price"/>: ${totalPrice} </label>
 <br>
 <c:if test="${ totalPrice > 0 }">
-<form method="post" action="/USER/sendOrder">
+<form method="post" action="/user/sendOrder">
     <input type="submit" value="<fmt:message key="text.sendOrder"/>"/>
 </form>
 </c:if>
-<input type="button" value="<fmt:message key="text.menu"/>" onclick="location.href='${pageContext.request.contextPath}/USER/category'"/>
+<input type="button" value="<fmt:message key="text.menu"/>" onclick="location.href='${pageContext.request.contextPath}/user/category'"/>
 </body>
 </html>

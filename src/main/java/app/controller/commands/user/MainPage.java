@@ -8,7 +8,7 @@ public class MainPage implements ICommand {
     @Override
     public String execute(HttpServletRequest req, String method) {
         if (method.equals("post")){
-            return "/USER/main";
+            return "/user/main";
         }
         if(method.equals("get")){
             return "/WEB-INF/user/main.jsp";

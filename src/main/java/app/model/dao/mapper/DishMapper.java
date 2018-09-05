@@ -4,7 +4,6 @@ import app.model.entity.Dish;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Map;
 
 public class DishMapper implements ObjectMapper<Dish> {
 

@@ -1,2 +1,0 @@
-2018-08-25 15:38:19.317 [http-bio-8888-exec-4] ERROR app.controller.listener.SessionListener - user Maria123  is logged already
-2018-08-25 15:45:10.456 [http-bio-8888-exec-2] ERROR app.controller.listener.SessionListener - user Admin with such password doesn't exists

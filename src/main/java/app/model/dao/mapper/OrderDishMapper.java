@@ -1,8 +1,6 @@
 package app.model.dao.mapper;
 
-import app.model.entity.Dish;
-import app.model.entity.Order;
-import app.model.entity.OrderHasDish;
+import app.model.entity.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,22 +11,21 @@ public class OrderDishMapper implements ObjectMapper<Order> {
     @Override
     public Order extractFromResultSet(ResultSet rs) throws SQLException {
         Order order = new Order();
-        order.setId(rs.getInt("id"));
+        order.setId(rs.getInt("order.id"));
         order.setSum(rs.getBigDecimal("sum"));
         order.setTimestamp(rs.getTimestamp("date_time"));
-        order.setStatus(rs.getString("status"));
-        order.setUserId(rs.getInt("user_id"));
-        if(rs.getString("admin_id")!=null)
-            order.setAdminId(rs.getInt("admin_id"));
-        if(rs.getInt("amount")!=-1){
-            OrderHasDishMapper orderHasDishMapper = new OrderHasDishMapper();
-            DishMapper dishMapper = new DishMapper();
-            OrderHasDish orderHasDish= orderHasDishMapper.extractFromResultSet(rs);
-            Dish dish = dishMapper.extractFromResultSet(rs);
-            Map<Dish, Integer> map = new HashMap<>();
-            map.put(dish,orderHasDish.getAmount());
-            order.setDishAmount(map);
-        }
+        Dish dish = new Dish();
+        dish.setId(rs.getInt("dish.id"));
+        dish.setName(rs.getString("name"));
+        dish.setNameUa(rs.getString("name_ua"));
+        dish.setPrice(rs.getBigDecimal("price"));
+        dish.setCategoryId(rs.getInt("category_id"));
+        Map<Dish, Integer> map = new HashMap<>();
+        map.put(dish,rs.getInt("amount"));
+        order.setDishAmount(map);
+        User user = new User();
+        user.setLogin(rs.getString("login"));
+        order.setUser(user);
         return order;
     }
 }

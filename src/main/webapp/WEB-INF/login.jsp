@@ -6,11 +6,11 @@
 <body>
 <h1><fmt:message key="text.loginForm"/></h1>
 <form method="post" action="${pageContext.request.contextPath}/login">
-    <label><fmt:message key="input.login" />:  </label>
+    <label><fmt:message key="text.login" />:  </label>
     <input type="text" name="login"><br />
 
-    <label><fmt:message key="input.password" />: </label>
-    <input type="password" name="password"><br />
+    <label><fmt:message key="input.password"/>: </label>
+    <input type="password" name="password" encrypt="sha1"><br />
     <button type="submit"><fmt:message key="login.form.text" /></button>
 </form>
 </body>

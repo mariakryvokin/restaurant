@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CheckDaoImpl implements ICheckDao {
-    Connection connection=null;
+    private Connection connection;
 
     public CheckDaoImpl(Connection connection) {
         this.connection = connection;
@@ -53,7 +53,7 @@ public class CheckDaoImpl implements ICheckDao {
 
     @Override
     public boolean update(Check entity) {
-        String sql = "UPDATE restaurant.`check` set status='paid' where id="+ entity.getId();
+        String sql = "UPDATE restaurant.`check` set status='paid',status_ua='оплачений' where id="+ entity.getId();
         try (PreparedStatement preparedStatement= connection.prepareStatement(sql)) {
             return (preparedStatement.executeUpdate(sql)>0);
         } catch (SQLException e) {
@@ -78,9 +78,9 @@ public class CheckDaoImpl implements ICheckDao {
     }
 
     @Override
-    public List<Check> getAllNotPaidByUserId(int userId) {
+    public List<Check> getAllUnpaidByUserId(int userId) {
         System.out.println("CHECK DAO");
-        String sql = "SELECT * from restaurant.`check` where status='notPaid' AND user_id="+userId;
+        String sql = "SELECT * from restaurant.`check` where status='unpaid' AND user_id="+userId;
         List<Check> checks= new ArrayList<>();
         try (Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(sql);

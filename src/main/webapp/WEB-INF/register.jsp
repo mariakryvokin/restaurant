@@ -6,7 +6,7 @@
 <body>
 <h1><fmt:message key="text.regForm" /></h1>
 <form method="post"action="${pageContext.request.contextPath}/register">
-    <label><fmt:message key="input.login" />:  </label>
+    <label><fmt:message key="text.login" />:  </label>
         <input type="text" name="login"><br />
 
     <label><fmt:message key="input.password" />: </label>

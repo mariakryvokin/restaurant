@@ -17,7 +17,7 @@ public class DeleteFromOrder implements ICommand {
             Map<Dish, Integer> dishObjMap = (Map<Dish, Integer>) req.getSession(false).getAttribute("dishObjMap");
             dishObjMap.remove(dish);
             req.getSession().setAttribute("dishObjMap", dishObjMap);
-            return "/USER/showOrder";
+            return "/user/showOrder";
         }
         return null;
     }

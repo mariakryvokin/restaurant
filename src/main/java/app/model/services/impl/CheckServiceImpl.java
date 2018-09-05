@@ -41,9 +41,9 @@ public class CheckServiceImpl implements ICheckService {
     }
 
     @Override
-    public List<Check> getAllNotPaidByUserId(int userId) {
+    public List<Check> getAllUnpaidByUserId(int userId) {
         try(ICheckDao checkDao =  daoFactory.createCheckDao()) {
-            return checkDao.getAllNotPaidByUserId(userId);
+            return checkDao.getAllUnpaidByUserId(userId);
         }
     }
 }

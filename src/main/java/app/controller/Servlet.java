@@ -1,8 +1,7 @@
 package app.controller;
 
 import app.controller.commands.*;
-import app.controller.commands.admin.MainPage;
-import app.controller.commands.admin.OrderToConfirm;
+import app.controller.commands.admin.*;
 import app.controller.commands.user.*;
 
 import javax.servlet.ServletConfig;
@@ -22,17 +21,21 @@ public class Servlet extends HttpServlet {
         commands.put("/register", new Register());
         commands.put("/login", new Login());
         commands.put("/logout", new Logout());
-        commands.put("/USER/main", new app.controller.commands.user.MainPage());
-        commands.put("/ADMIN/main", new MainPage());
-        commands.put("/USER/addToOrder", new AddToOrder());
-        commands.put("/USER/showOrder", new ShowOrder());
-        commands.put("/USER/menu", new Menu());
-        commands.put("/USER/category", new Category());
-        commands.put("/USER/sendOrder", new SendOrder());
-        commands.put("/USER/deleteItemFromOrder", new DeleteFromOrder());
-        commands.put("/ADMIN/ordersToConfirm", new OrderToConfirm());
-        commands.put("/USER/showCheck", new ShowCheck());
-        commands.put("/USER/payCheck", new PayCheck());
+        commands.put("/user/main", new app.controller.commands.user.MainPage());
+        commands.put("/user/showCheck", new ShowCheck());
+        commands.put("/user/addToOrder", new AddToOrder());
+        commands.put("/admin/editOrder", new EditOrder());
+        commands.put("/user/showOrder", new ShowOrder());
+        commands.put("/user/deleteItemFromOrder", new DeleteFromOrder());
+        commands.put("/user/menu", new Menu());
+        commands.put("/user/category", new Category());
+        commands.put("/user/sendOrder", new SendOrder());
+        commands.put("/user/showAllSendedOrders", new ShowAllSendedOrders());
+        commands.put("/user/payCheck", new PayCheck());
+        commands.put("/admin/main", new app.controller.commands.admin.MainPage());
+        commands.put("/admin/setDeletedStatus", new OrderSetDeletedStatus());
+        commands.put("/admin/ordersToConfirm", new OrderToConfirm());
+        commands.put("/admin/ordersForUser",new OrdersForUser());
     }
 
     @Override
@@ -47,7 +50,6 @@ public class Servlet extends HttpServlet {
 
     private void processRequest(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
         String path = req.getRequestURI();
-        System.out.println("path "+ path);
         ICommand command = commands.getOrDefault(path , (r,t)->"index.jsp");
         String page = command.execute(req,req.getMethod().toLowerCase());
         if(req.getMethod().toLowerCase().equals("post")){

@@ -12,7 +12,8 @@ public class CheckMapper implements ObjectMapper<Check>{
         Check check = new Check();
         check.setId(rs.getInt("id"));
         check.setOrderId(rs.getInt("order_id"));
-        check.setStatus(rs.getString("status"));
+        check.setStatusEnum(Check.CheckStatus.valueOf(rs.getString("status").toUpperCase()));
+        check.setStatusUaEnum(Check.CheckStatusUa.valueOf(rs.getString("status_ua").toUpperCase()));
         check.setTimestamp(rs.getTimestamp("date_time"));
         check.setSum(rs.getBigDecimal("sum"));
         check.setUserId(rs.getInt("user_id"));

@@ -1,6 +1,7 @@
 package app.model.dao.impl;
 
 import app.config.ConnectionPoolHolder;
+import app.config.DataSourceSingleton;
 import app.model.dao.*;
 
 import javax.sql.DataSource;
@@ -9,7 +10,7 @@ import java.sql.SQLException;
 
 public class DaoFactoryImpl extends DaoFactory {
 
-    private DataSource dataSource = ConnectionPoolHolder.getDataSource();
+    private DataSource dataSource = ConnectionPoolHolder.getDataSource();/*DataSourceSingleton.DATA_SOURCE.getDataSource();*/
 
     @Override
     public IDishDao createDishDao() {

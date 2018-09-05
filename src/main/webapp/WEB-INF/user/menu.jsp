@@ -14,13 +14,13 @@
     <table class="table table-striped table-bordered table-sm">
         <tr>
             <th><fmt:message key="text.name"/></th>
-            <th><fmt:message key="price"/></th>
+            <th><fmt:message key="text.price"/></th>
             <th><fmt:message key="amount"/></th>
             <th><fmt:message key="text.toOrder"/></th>
         </tr>
         <c:forEach items="${dishes}" var="dishes">
             <tr>
-                <form action="/USER/addToOrder" method="post">
+                <form action="/user/addToOrder" method="post">
                 <td>${language == 'en' ? dishes.getName() : dishes.getNameUa()}</td>
                 <td>${dishes.getPrice()}</td>
                 <td><input type="number" min="1" name="amount" value="1"/></td>
@@ -40,7 +40,7 @@
                     </li>
                 </c:when>
                 <c:otherwise>
-                    <li class="page-item"><a class="page-link" href="/USER/menu?currentPage=${i}&category_id=${dishes.get(0).getCategoryId()}">${i}</a>
+                    <li class="page-item"><a class="page-link" href="/user/menu?currentPage=${i}&category_id=${dishes.get(0).getCategoryId()}">${i}</a>
                     </li>
                 </c:otherwise>
             </c:choose>
@@ -49,7 +49,7 @@
     </ul>
 </nav>
 
-<input type="button" value="<fmt:message key="text.menu"/>" onclick="location.href='/USER/category'"/>
+<input type="button" value="<fmt:message key="text.menu"/>" onclick="location.href='/user/category'"/>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>

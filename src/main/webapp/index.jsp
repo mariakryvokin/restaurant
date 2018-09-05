@@ -15,7 +15,7 @@
     </form>
     <a href="/login"><fmt:message key="login.form.text" bundle="${resource}"/></a>
 <%--    <a href="${pageContext.request.contextPath}/register"><fmt:message key="register.from.text"/></a>--%>
-    <a href="/register.jsp"><fmt:message key="register.from.text" bundle="${resource}"/></a>
+    <a href="/register"><fmt:message key="register.from.text" bundle="${resource}"/></a>
 
 </div>
 </body>

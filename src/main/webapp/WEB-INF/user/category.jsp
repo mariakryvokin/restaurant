@@ -8,11 +8,11 @@
 <body>
 <c:forEach items="${categories}" var="categories">
     <p>
-    <input type="button" value="${language == 'en' ? categories.getName() : categories.getNameUa()}" onclick="location.href='/USER/menu?category_id=${categories.getId()}'"/>
+    <input type="button" value="${language == 'en' ? categories.getName() : categories.getNameUa()}" onclick="location.href='/user/menu?category_id=${categories.getId()}'"/>
     </p>
 </c:forEach>
 <br>
-<input type="button" value="<fmt:message key="text.mainPage" bundle="${resource}"/>" onclick="location.href='/USER/main'"/>
+<input type="button" value="<fmt:message key="text.mainPage" bundle="${resource}"/>" onclick="location.href='/user/main'"/>
 
 </body>
 </html>

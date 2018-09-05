@@ -11,7 +11,7 @@ public class PayCheck implements ICommand {
         if(method.equals("post")){
             System.out.println("check id "+ req.getParameter("checkId"));
             Services.CHECK_SERVICE.update(Services.CHECK_SERVICE.findById(Integer.parseInt(req.getParameter("checkId"))));
-            return "/USER/main";
+            return "/user/main";
         }
         return null;
     }

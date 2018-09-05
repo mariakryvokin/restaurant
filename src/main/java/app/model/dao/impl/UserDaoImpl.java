@@ -29,7 +29,7 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public User insert(User user) {
-        String sql = "INSERT INTO user (login,password) VALUES (?,?)";
+        String sql = "INSERT INTO `user` (login,password) VALUES (?,SHA1(?))";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1,user.getLogin());
             preparedStatement.setString(2,user.getPassword());
@@ -42,7 +42,7 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public User getByLogin(String login) {
-        String sql = "SELECT * FROM user Where login='"+login+"'";
+        String sql = "SELECT * FROM `user` Where login='"+login+"'";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql);
              ResultSet resultSet = preparedStatement.executeQuery(sql)){
             UserMapper userMapper = new UserMapper();
@@ -55,7 +55,7 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public User getByLoginAndPassword(String login, String password) {
-        String sql = "SELECT * FROM user where login='"+login+"' AND password='"+password+"'";
+        String sql = "SELECT * FROM `user` where login='"+login+"' AND password=SHA1('"+password+"')";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql);
              ResultSet resultSet = preparedStatement.executeQuery(sql)) {
             UserMapper userMapper = new UserMapper();

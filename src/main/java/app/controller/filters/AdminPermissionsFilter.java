@@ -1,12 +1,15 @@
 package app.controller.filters;
 
+import app.exceptions.NotEnoughPermissionException;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-@WebFilter( "/ADMIN/*")
-public class AdminRightsFilter implements Filter {
+@WebFilter( "/admin/*")
+public class AdminPermissionsFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -16,11 +19,10 @@ public class AdminRightsFilter implements Filter {
     public void doFilter(ServletRequest request,
                          ServletResponse response,
                          FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("admin righs FILTER");
         final HttpServletRequest req = (HttpServletRequest) request;
-        HttpSession session = req.getSession();
-        if(!session.getAttribute("role").toString().equals("ADMIN")){
-            throw new RuntimeException("not enough right for this");
+        HttpSession session = req.getSession(true);
+        if (session.getAttribute("role") == null || !session.getAttribute("role").toString().toLowerCase().equals("admin") ) {
+            throw new NotEnoughPermissionException(403,"not enough permission");
         }
         filterChain.doFilter(request,response);
     }

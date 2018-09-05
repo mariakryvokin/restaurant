@@ -11,11 +11,6 @@ public class OrderHasDishImpl implements app.model.services.IOrderHasDish {
     DaoFactory daoFactory = DaoFactory.getInstance();
 
     @Override
-    public Map<Integer, Integer> allDishesForOrder(int dishId, int amount) {
-        return null;
-    }
-
-    @Override
     public OrderHasDish insert(OrderHasDish entity) {
         try(IOrderHasDishDao dao = daoFactory.createOrderHasDishDao()) {
             return dao.insert(entity);
@@ -39,6 +34,14 @@ public class OrderHasDishImpl implements app.model.services.IOrderHasDish {
 
     @Override
     public boolean delete(int id) {
+
         return false;
+    }
+
+    @Override
+    public boolean deleteByDishOrderId(int dishId, int orderId) {
+        try(IOrderHasDishDao dao = daoFactory.createOrderHasDishDao()){
+            return dao.deleteByDishOrderId(dishId, orderId);
+        }
     }
 }

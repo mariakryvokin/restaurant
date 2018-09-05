@@ -31,7 +31,7 @@ public class Menu implements ICommand {
             return  "/WEB-INF/user/menu.jsp";
         }
         if (method.equals("post")){
-            return  "/USER/menu";
+            return  "/user/menu";
         }
         return  null;
     }

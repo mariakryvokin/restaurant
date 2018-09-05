@@ -7,7 +7,7 @@
 <title>Check</title>
 <body>
 <c:forEach items="${allChecks}" var="allChecks">
-        <form action="/USER/payCheck?checkId=${allChecks.getId()}" method="post">
+        <form action="/user/payCheck?checkId=${allChecks.getId()}" method="post">
             <p>
             <fmt:formatDate value="${allChecks.getTimestamp()}" type="both" dateStyle="full"/><br/>${allChecks.getSum()}
             </p>

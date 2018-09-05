@@ -1,4 +1,3 @@
-insert into restaurant.dish values(1,'цезар','cezar',120,1),(2,'наполеон','napoleon',210,2),
-(3,'олів','olive',320,1),(4,'зебра','zebra',250,2),(5,'галицький','garlic',260,1);
-insert into restaurant.user values(1,'Maria123','Maria123!','USER'),
-(2,'Mariia567','Mariia567!','ADMIN');
+insert into restaurant.dish values(1,'cezar','цезар',120,1),
+(2,'napoleon','наполеон',210,2),
+(3,'olive','олів',320,1),(4,'zebra','зебра',250,2),(5,'garlic','галицький',260,1);

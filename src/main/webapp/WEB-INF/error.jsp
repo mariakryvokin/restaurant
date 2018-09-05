@@ -8,9 +8,9 @@
     <br/>
     Servlet name: ${pageContext.errorData.servletName}
     <br/>
-    Status code: ${pageContext.errorData.statusCode}
-    <br/>
-    Exception: ${pageContext.exception}
+    Status code: ${pageContext.exception.statusCode}
+   <%-- <br/>
+    Exception: ${pageContext.exception}--%>
     <br/>
     Message from exception: ${pageContext.exception.message}
     </body>

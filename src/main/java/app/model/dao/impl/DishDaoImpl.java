@@ -17,7 +17,19 @@ public class DishDaoImpl implements IDishDao {
     }
 
     @Override
-    public Dish insert(Dish entity) {
+    public Dish insert(Dish dish) {
+        String sql = "INSERT into dish (`name`, name_ua, price, category_id)  values(?,?,?,?)";
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setString(1,dish.getName());
+            preparedStatement.setString(2,dish.getNameUa());
+            preparedStatement.setInt(3,dish.getId());
+            if(preparedStatement.executeUpdate()>1)
+                return dish;
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
@@ -102,6 +114,21 @@ public class DishDaoImpl implements IDishDao {
             e.printStackTrace();
         }
         throw new RuntimeException("cant get count category dishes");
+    }
+
+    @Override
+    public Dish findByName(String dishName, String language) {
+        String nameForSql= language.equals("ua") ? "name_ua" : "name";
+        String sql = "Select * from dish where "+nameForSql+"="+dishName;
+        DishMapper dishMapper = new DishMapper();
+        try(PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            Dish dish = dishMapper.extractFromResultSet(preparedStatement.executeQuery());
+            return dish;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
 }

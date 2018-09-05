@@ -5,11 +5,35 @@ import java.sql.Timestamp;
 
 public class Check {
     private int id;
-    private String status;
     BigDecimal sum;
     private Timestamp timestamp;
     private int userId;
     private int orderId;
+    private CheckStatus statusEnum;
+    private CheckStatusUa statusUaEnum;
+
+    public enum CheckStatus {
+        UNPAID, PAID
+    }
+    public enum CheckStatusUa {
+        НЕОПЛАЧЕНИЙ, ОПЛАЧЕНИЙ
+    }
+
+    public CheckStatus getStatusEnum() {
+        return statusEnum;
+    }
+
+    public void setStatusEnum(CheckStatus statusEnum) {
+        this.statusEnum = statusEnum;
+    }
+
+    public CheckStatusUa getStatusUaEnum() {
+        return statusUaEnum;
+    }
+
+    public void setStatusUaEnum(CheckStatusUa statusUaEnum) {
+        this.statusUaEnum = statusUaEnum;
+    }
 
     public int getId() {
         return id;
@@ -17,14 +41,6 @@ public class Check {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public Timestamp getTimestamp() {
@@ -59,10 +75,10 @@ public class Check {
         this.sum = sum;
     }
 
+
     @Override
     public String toString() {
         return "Check{" +
-                "status='" + status + '\'' +
                 ", sum=" + sum +
                 ", userId=" + userId +
                 ", orderId=" + orderId +
